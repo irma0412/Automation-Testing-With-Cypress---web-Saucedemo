@@ -1,0 +1,7 @@
+# folder berat atau gak penting
+node_modules/
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+.DS_Store
+.env
