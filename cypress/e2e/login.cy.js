@@ -2,7 +2,7 @@ import loginPages from "../support/pages/loginPages";
 
 describe ("Testing Web SauceDemo", () => {
     beforeEach(() =>{
-        cy.visit('https://www.saucedemo.com/')
+        loginPages.visit();
     });
 
     afterEach(() =>{
