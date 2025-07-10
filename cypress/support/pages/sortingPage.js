@@ -15,15 +15,15 @@ getAllProductPrices(){
     return cy.get('.inventory_item_price');
 }
 // validation to ensure the products are displayed from Z to A
-verifyDateSortedByZA(){
+verifyNameSortedByZA(){
     this.getAllProductNames().then(($els)=>{
         const names = [...$els].map(el => el.innerText);
-        const sorted = [...names].sort();
+        const sorted = [...names].sort().reverse(); //reverse is used to sort the reverse of z-a, if a-z then don't use reverse
         expect(names).to.deep.equal(sorted);
     });
 }
 // validation to ensure the products are displayed from lowest to highest price
-verifyDateSortedByLohi(){
+verifyDataSortedByLohi(){
     this.getAllProductPrices().then(($els)=>{
         const prices = [...$els].map(el => parseFloat(el.innerText.replace('$', '')));
         const sorted = [...prices].sort((a,b)=> a-b);
@@ -31,11 +31,12 @@ verifyDateSortedByLohi(){
     });
 }
 // validation to ensure the products are displayed from highest to lowest price
-verifyDateSortedByHilo(){
+verifyDataSortedByHilo(){
     this.getAllProductPrices().then(($els)=>{
         const prices = [...$els].map(el => parseFloat(el.innerText.replace('$', '')));
-        const sorted = [...$prices].sort((a,b)=> b-a );
-        expect(price).to.deep.equal(sorted);
-    })
+        const sorted = [...prices].sort((a,b)=> b-a );
+        expect(prices).to.deep.equal(sorted);
+    });
 }
 } 
+export default new inventoryPage();
