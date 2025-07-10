@@ -7,35 +7,49 @@ describe ("Testing Web SauceDemo", () => {
         cy.wait(1000)
     })
 
-    it ("✅Login Sukses", () => {
-        cy.xpath('//*[@id="user-name"]').type('standard_user');
-        cy.xpath('//*[@id="password"]').type('secret_sauce');
-        cy.xpath('//*[@id="login-button"]').click();
+    it ("✅Succes login", () => {
+        cy.get('#user-name').type('standard_user');
+        cy.get('#password').type('secret_sauce');
+        cy.get('#login-button').click();
+             
+        // Validation to ensure the URL points to the inventory page
+        cy.url().should('include', '/inventory.html');
+        // Validation to ensure there are elements on the page after login
+        cy.get('.inventory_list').should('be.visible');
+        // Validation to ensure the shopping cart appears
+        cy.get('.shopping_cart_link').should('be.visible');
         cy.log('✅succes login');
         
         
     });
 
-    it("❌Login Gagal Username Invalid", ()=>{
-        cy.xpath('//*[@id="user-name"]').type('standard');
-        cy.xpath('//*[@id="password"]').type('secret_sauce');
-        cy.xpath('//*[@id="login-button"]').click();
+    it("❌Failed login because username invalid", ()=>{
+        cy.get('#user-name').type('standard');
+        cy.get('#password').type('secret_sauce');
+        cy.get('#login-button').click();
+        // validation to ensure there is an error message
+        cy.get('[data-test="error"]').should('contain', 'Epic sadface: Username and password do not match any user in this service');
         cy.log('❌Failed login because username invalid');
-       
+   
     });
 
-    it("❌Login Gagal Password Invalid", ()=>{
-        cy.xpath('//*[@id="user-name"]').type('standard_user');
-        cy.xpath('//*[@id="password"]').type('secret');
-        cy.xpath('//*[@id="login-button"]').click();
+    it("❌Failed login because password invalid", ()=>{
+        cy.get('#user-name').type('standard_user');
+        cy.get('#password').type('secret');
+        cy.get('#login-button').click();
+        // validation to ensure there is an error message
+        cy.get('[data-test="error"]').should('contain', 'Epic sadface: Username and password do not match any user in this service');
         cy.log('❌Failed login because password invalid');
+        
      
     });
 
-    it("❌Login Gagal Username&Password Invalid", ()=>{
-        cy.xpath('//*[@id="user-name"]').type('standard');
-        cy.xpath('//*[@id="password"]').type('secret');
-        cy.xpath('//*[@id="login-button"]').click();
+    it("❌Failed login because username&password invalid", ()=>{
+        cy.get('#user-name').type('standard');
+        cy.get('#password').type('secret');
+        cy.get('#login-button').click();
+        // validation to ensure there is an error message
+        cy.get('[data-test="error"]').should('contain', 'Epic sadface: Username and password do not match any user in this service');
         cy.log('❌Failed login because username&password invalid');
    
     });
