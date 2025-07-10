@@ -6,8 +6,8 @@ describe("Sortir Produk Web SauceDemo", ()=>{
         loginPages.visit();
         loginPages.fillUsername('standard_user');
         loginPages.fillPassword('secret_sauce');
-        loginPages.clickLogin(); 
-        loginPages.verifyLoginSucces();
+        loginPages.clickLogin();     
+        sortingPage.verifyOnInventoryPage();
 
 
     });
