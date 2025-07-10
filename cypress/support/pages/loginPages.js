@@ -11,7 +11,7 @@ class LoginPage {
     }
 
     clickLogin() {
-        cy.get('#login-butto').click();
+        cy.get('#login-button').click();
     }
 
     verifyLoginSucces(){
