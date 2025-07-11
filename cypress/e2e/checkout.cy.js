@@ -26,7 +26,7 @@ describe("Checkout Produk Web SauceDemo", ()=>{
         checkoutPage.clickFinish();
         // validation
         checkoutPage.verifySuccesCheckout();         
-        cy.log('✅succes to checkout 2 product');
+        cy.log('✅Succes to checkout 2 products');
     });
     
     it("✅Checkout 3 product", ()=>{
@@ -41,7 +41,7 @@ describe("Checkout Produk Web SauceDemo", ()=>{
         checkoutPage.clickFinish();
         // validation
         checkoutPage.verifySuccesCheckout();
-        cy.log('✅succes to checkout 3 product');
+        cy.log('✅Succes to checkout 3 products');
     });
     it("❌Checkout without product", ()=>{
   
@@ -56,8 +56,7 @@ describe("Checkout Produk Web SauceDemo", ()=>{
         checkoutPage.clickFinish(); 
         // validation       
         // expectation failed, because this is a BUG from SauceDemo — it shouldn't be possible to finish without items
-        cy.url().should('include', 'checkout-complete.html');
-        cy.contains('THANK YOU FOR YOUR ORDER').should('be.visible');
+        checkoutPage.verifySuccesCheckout();
         cy.log('BUG: Checkout successful even though cart is empty (this should not be possible)');
  
     });
@@ -70,7 +69,7 @@ describe("Checkout Produk Web SauceDemo", ()=>{
         checkoutPage.verifyOnCartPage();
         checkoutPage.clickCheckout();
         checkoutPage.fillCustomerInfo('irma', 'suryani', '11223');
-        checkoutPage.cancelCheckout()
+        checkoutPage.cancelCheckout();
         checkoutPage.backToShopping();
         // validation
         cy.url().should('include', 'inventory.html');

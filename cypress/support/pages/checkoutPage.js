@@ -1,4 +1,4 @@
-class CheckoutsPage{
+class CheckoutPage{
     addToCart(productIds=[]){
         productIds.forEach(id =>{
            cy.get(`[data-test="add-to-cart-${id}"]`).click();
@@ -31,11 +31,11 @@ class CheckoutsPage{
     // validation to ensure the URL point to the checkout-complete.html
     verifySuccesCheckout(){
         cy.url().should('include','checkout-complete.html');
-        cy.contains('THANK YOU FOR YOUR ORDER').should('be.visible');
+        cy.get('[data-test="complete-header"]').should('contain', 'Thank you for your order!');
     }
     verifyOnCartPage(){
         cy.url().should('include', 'cart.html');
     }
 
 }
-export default new CheckoutsPage();
+export default new CheckoutPage();
