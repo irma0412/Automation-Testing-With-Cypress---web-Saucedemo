@@ -36,11 +36,14 @@ class CheckoutPage{
     verifyOnCartPage(){
         cy.url().should('include', 'cart.html');
     }
-    verifyOncheckoutPage(){
+    verifyOncheckoutPageStep1(){
         cy.url().should('include', 'checkout-step-one.html');
     }
     verifyOnCheckoutPageStep2(){
         cy.url().should('include', 'checkout-step-two.html');
+    }
+    verifyOninventoryPage(){
+        cy.url().should('include', 'inventory.html');
     }
 
 }

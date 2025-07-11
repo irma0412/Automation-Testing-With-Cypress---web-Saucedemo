@@ -12,28 +12,28 @@ describe("Logout form Web SauceDemo", ()=>{
     
     });
     afterEach(()=>{
-        cy.wait(1000);
-        logoutPage.verifyuSuccesLogout();
+       
+        logoutPage.verifySuccesLogout();
         cy.log('✅Succes logout')
 
     });
 
     it("✅Logout from homepage", ()=>{
-        logoutPage.buttonLogout();    
+        logoutPage.buttonLogout(); 
+
     });
 
     it("✅Logout from shopping cart page", ()=>{
         checkoutPage.openCart();
-        checkoutPage.verifyOnCartPage
+        checkoutPage.verifyOnCartPage();
         logoutPage.buttonLogout();
     });
     it("✅ Logout from checkout page", ()=>{
         checkoutPage.openCart();
         checkoutPage.verifyOnCartPage();
         checkoutPage.clickCheckout();
-        checkoutPage.verifyOncheckoutPage();
-        logoutPage.buttonLogout();
-        logoutPage.verifyuSuccesLogout();      
+        checkoutPage.verifyOncheckoutPageStep1();
+        logoutPage.buttonLogout();     
                
     });
         it("✅ Logout from payment page", ()=>{
@@ -42,11 +42,11 @@ describe("Logout form Web SauceDemo", ()=>{
        checkoutPage.openCart();
        checkoutPage.verifyOnCartPage();
        checkoutPage.clickCheckout();
+       checkoutPage.verifyOncheckoutPageStep1();
        checkoutPage.fillCustomerInfo('irma', 'suryani', '11223');
        checkoutPage.clickContinue();
        checkoutPage.verifyOnCheckoutPageStep2();
-       logoutPage.buttonLogout();
-       logoutPage.verifyuSuccesLogout();     
+       logoutPage.buttonLogout();     
         
 
     });

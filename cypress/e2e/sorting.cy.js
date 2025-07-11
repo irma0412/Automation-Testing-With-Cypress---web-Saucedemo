@@ -11,9 +11,7 @@ describe("Sortir Produk Web SauceDemo", ()=>{
 
 
     });
-    afterEach(()=>{
-        cy.wait(1000);
-    });
+   
 
     it("✅Sorted product Z to A", ()=>{
         sortingPage.selectSorting('za');

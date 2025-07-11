@@ -5,9 +5,7 @@ describe ("Testing Web SauceDemo", () => {
         loginPages.visit();
     });
 
-    afterEach(() =>{
-        cy.wait(1000)
-    })
+   
 
     it ("✅Succes login", () => {
         loginPages.fillUsername('standard_user');

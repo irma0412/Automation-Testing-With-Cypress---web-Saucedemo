@@ -3,7 +3,7 @@ class LogoutPage{
         cy.get('#react-burger-menu-btn').click();
         cy.get('[data-test="logout-sidebar-link"]').click();
     }
-    verifyuSuccesLogout(){
+    verifySuccesLogout(){
         cy.url().should('eq', 'https://www.saucedemo.com/');
     }
 }
