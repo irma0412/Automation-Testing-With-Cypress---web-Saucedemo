@@ -3,6 +3,7 @@ import loginPages from "../support/pages/loginPages";
 
 describe("Checkout Produk Web SauceDemo", ()=>{
     beforeEach(()=>{
+        loginPages.visit();
         loginPages.fillUsername('standard_user');
         loginPages.fillPassword('secret_sauce');
         loginPages.clickLogin();
@@ -46,18 +47,18 @@ describe("Checkout Produk Web SauceDemo", ()=>{
   
         // click button to checkout 
         checkoutPage.openCart();
-        checkoutPage.clickCheckout();
         // validation
-        checkoutPage.verifyOnCartPage();
+         checkoutPage.verifyOnCartPage();        
+     
         checkoutPage.clickCheckout();
         checkoutPage.fillCustomerInfo('irma', 'suryani', '11223');
         checkoutPage.clickContinue();
         checkoutPage.clickFinish(); 
         // validation       
         // expectation failed, because this is a BUG from SauceDemo — it shouldn't be possible to finish without items
-        cy.url().should('include', 'checkout-complete.html');
+        cy.url().should('not.include', 'checkout-complete.html');
         cy.contains('THANK YOU FOR YOUR ORDER').should('be.visible');
-        cy.log('BUG: Checkout successful even though the cart is empty');
+        cy.log('Expected failed checkout: Cart was empty');
  
     });
   
