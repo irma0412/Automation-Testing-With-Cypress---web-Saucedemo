@@ -3,19 +3,19 @@ class LoginPage {
         cy.visit('https://www.saucedemo.com/');
     }
     fillUsername(username) {
-        cy.get('[data-test="username"]').clear().type(username);
+        cy.get('[data-test="username"]').type(username);
 
     }
     fillPassword(password) {
-        cy.get('[data-test="password"]').clear().type(password);
+        cy.get('[data-test="password"]').type(password);
     }
 
     clickLogin() {
         cy.get('[data-test="login-button"]').click();
     }
     loginWith(username, password){
-        this.fillUsername();
-        this.fillPassword();
+        this.fillUsername(username);
+        this.fillPassword(password);
         this.clickLogin();
     }
 

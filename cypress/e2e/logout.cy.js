@@ -5,9 +5,7 @@ import logoutPage from "../support/pages/logoutPage";
 describe("Logout form Web SauceDemo", ()=>{
     beforeEach(()=>{
         loginPages.visit();
-        loginPages.fillUsername('standard_user');
-        loginPages.fillPassword('secret_sauce');
-        loginPages.clickLogin();
+        loginPages.loginWith('standard_user', 'secret_sauce');
         loginPages.verifyLoginSucces();
     
     });

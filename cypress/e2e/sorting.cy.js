@@ -4,9 +4,7 @@ import sortingPage from "../support/pages/sortingPage";
 describe("Sortir Produk Web SauceDemo", ()=>{
     beforeEach(()=>{
         loginPages.visit();
-        loginPages.fillUsername('standard_user');
-        loginPages.fillPassword('secret_sauce');
-        loginPages.clickLogin();     
+        loginPages.loginWith('standard_user', 'secret_sauce');  
         loginPages.verifyLoginSucces()
 
 
@@ -20,12 +18,12 @@ describe("Sortir Produk Web SauceDemo", ()=>{
     });
     it("✅Sorted product low to high", ()=>{
         sortingPage.selectSorting('lohi');
-        sortingPage.verifyDataSortedByLohi();
+        sortingPage.verifyPriceSortedByLowToHigh();
         cy.log('✅Succes sortir product low to high');
     });
     it("✅Sorted product high to low", ()=>{
         sortingPage.selectSorting('hilo');
-        sortingPage.verifyDataSortedByHilo();
+        sortingPage.verifyPriceSortedByHighToLow();
         cy.log('✅Succes sortir product high to low');
     });
 });

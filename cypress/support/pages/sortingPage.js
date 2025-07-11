@@ -1,4 +1,4 @@
-class inventoryPage{
+class SortingPage{
 
 selectSorting(optionValue){
     cy.get('[data-test="product-sort-container"]').select(optionValue);
@@ -20,7 +20,7 @@ verifyNameSortedByZA(){
     });
 }
 // validation to ensure the products are displayed from lowest to highest price
-verifyDataSortedByLohi(){
+verifyPriceSortedByLowToHigh(){
     this.getAllProductPrices().then(($els)=>{
         const prices = [...$els].map(el => parseFloat(el.innerText.replace('$', '')));
         const sorted = [...prices].sort((a,b)=> a-b);
@@ -28,7 +28,7 @@ verifyDataSortedByLohi(){
     });
 }
 // validation to ensure the products are displayed from highest to lowest price
-verifyDataSortedByHilo(){
+verifyPriceSortedByHighToLow(){
     this.getAllProductPrices().then(($els)=>{
         const prices = [...$els].map(el => parseFloat(el.innerText.replace('$', '')));
         const sorted = [...prices].sort((a,b)=> b-a );
@@ -36,4 +36,4 @@ verifyDataSortedByHilo(){
     });
 }
 } 
-export default new inventoryPage();
+export default new SortingPage();
