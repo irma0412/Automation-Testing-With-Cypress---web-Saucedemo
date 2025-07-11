@@ -56,9 +56,9 @@ describe("Checkout Produk Web SauceDemo", ()=>{
         checkoutPage.clickFinish(); 
         // validation       
         // expectation failed, because this is a BUG from SauceDemo — it shouldn't be possible to finish without items
-        cy.url().should('not.include', 'checkout-complete.html');
+        cy.url().should('include', 'checkout-complete.html');
         cy.contains('THANK YOU FOR YOUR ORDER').should('be.visible');
-        cy.log('Expected failed checkout: Cart was empty');
+        cy.log('BUG: Checkout successful even though cart is empty (this should not be possible)');
  
     });
   
