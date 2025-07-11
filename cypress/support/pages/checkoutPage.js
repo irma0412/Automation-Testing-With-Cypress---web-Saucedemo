@@ -1,7 +1,8 @@
 class CheckoutsPage{
     addToCart(productIds=[]){
         productIds.forEach(id =>{
-            cy.get('[data-test="add-to-cart-${id}]').click();
+           cy.get(`[data-test="add-to-cart-${id}"]`).click();
+
         });
     }
     openCart(){
@@ -10,7 +11,7 @@ class CheckoutsPage{
     clickCheckout(){
         cy.get('[data-test="checkout"]').click();
     }
-    fillCustomerInfo(){
+    fillCustomerInfo(firstName, lastName, postalCode){
         cy.get('[data-test="firstName"]').type(firstName);
         cy.get('[data-test="lastName"]').type(lastName);
         cy.get('[data-test="postalCode"]').type(postalCode);
@@ -30,6 +31,7 @@ class CheckoutsPage{
     // validation to ensure the URL point to the checkout-complete.html
     verifySuccesCheckout(){
         cy.url().should('include','checkout-complete.html');
+        cy.contains('THANK YOU FOR YOUR ORDER').should('be.visible');
     }
     verifyOnCartPage(){
         cy.url().should('include', 'cart.html');

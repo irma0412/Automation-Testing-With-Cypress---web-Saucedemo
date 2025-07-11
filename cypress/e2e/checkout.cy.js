@@ -3,7 +3,7 @@ import loginPages from "../support/pages/loginPages";
 
 describe("Checkout Produk Web SauceDemo", ()=>{
     beforeEach(()=>{
-        loginPages.fillUsername('standar_user');
+        loginPages.fillUsername('standard_user');
         loginPages.fillPassword('secret_sauce');
         loginPages.clickLogin();
         loginPages.verifyLoginSucces();
@@ -72,7 +72,7 @@ describe("Checkout Produk Web SauceDemo", ()=>{
         checkoutPage.cancelCheckout()
         checkoutPage.backToShopping();
         // validation
-        cy.ur().sould('include', 'inventory.html');
+        cy.url().should('include', 'inventory.html');
         cy.log('✅Checkout is canceled and returned to the product page');
 
     });
