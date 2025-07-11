@@ -1,60 +1,76 @@
 # Belajar Cypress 🧪
 
-Project ini dibuat untuk latihan automation testing menggunakan Cypress.
+Project ini dibuat untuk latihan automation testing menggunakan Cypress dengan pendekatan POM (Page Object Model), penggunaan assertion, serta reusable functions.
 
-## 🧾 Fitur Test:
+🎯 Tujuan utamanya adalah memahami alur testing web dari login, sortir produk, checkout, hingga logout dengan skenario yang beragam.
 
-- Login (4 skenario):
+# Fitur yang Diuji (Test Cases)
+1. Login (4 skenario)
+- ✅ Login sukses (username & password valid)
 
-1.✅ Login sukses dengan username & password valid
+- ❌ Gagal login - username salah
 
-2.❌ Login gagal: username salah
+- ❌ Gagal login - password salah
 
-3.❌ Login gagal: password salah
+- ❌ Gagal login - username & password salah
 
-4.❌ Login gagal: username & password salah
+2.  Sortir Produk (3 skenario)
+- ✅ Sortir dari nama Z → A
 
-- 🔃 Sortir produk (3 skenario):
+- ✅ Sortir harga dari rendah → tinggi
 
-1.✅ Sortir produk dari Z ke A
+- ✅ Sortir harga dari tinggi → rendah
 
-2.✅ Sortir produk dari harga terendah ke tertinggi
+3.  Checkout (4 skenario)
+- ✅ Checkout dengan 2 produk
 
-3.✅ Sortir produk dari harga tertinggi ke terendah
+- ✅ Checkout dengan 3 produk
 
-- 🛒 Checkout (4 skenario):
+- ❌ Checkout tanpa memilih produk
 
-1.✅ Checkout 2 produk
+- ❌ Cancel saat proses checkout
 
-2.✅ Checkout 3 produk
+4.  Logout (dari 4 halaman berbeda)
+- ✅ Logout dari halaman utama (homepage)
 
-3.❌ Checkout tanpa memilih produk
+- ✅ Logout dari halaman shopping cart
 
-4.❌ Cancel saat proses checkout
+- ✅ Logout dari halaman checkout
 
-- 🚪 Logout (4 halaman berbeda):
+- ✅ Logout dari halaman pembayaran (payment)
 
-1.✅ Logout dari halaman utama (homepage)
-
-2.✅ Logout dari halaman shopping cart
-
-3.✅ Logout dari halaman checkout
-
-4.✅ Logout dari halaman pembayaran (payment)
-
-## 🚀 Tools yang digunakan:
+# 🛠️ Tools & Library
 - Cypress
-- XPath Plugin
+cypress-xpath plugin (untuk selector alternatif jika diperlukan)
 
-## 📂 Struktur Folder:
+# Struktur Folder
+bash
 cypress/
-├── e2e/
-├── fixtures/
+├── e2e/                # Test case utama
+│   ├── login.cy.js
+│   ├── sorting.cy.js
+│   ├── checkout.cy.js
+│   └── logout.cy.js
 ├── support/
+│   ├── commands.js
+│   ├── e2e.js
+│   └── pages/          # Page Object Model
+│       ├── loginPages.js
+│       ├── sortingPage.js
+│       ├── checkoutPage.js
+│       └── logoutPage.js
+├── fixtures/           # (optional) data dummy jika dibutuhkan
 .gitignore
 cypress.config.js
 package.json
 
-> Note: Project ini dijalankan menggunakan Cypress GUI dengan browser Chrome.
+# 🚀 Cara Menjalankan
+- Clone repo ini
+- Jalankan npm install
+- Buka Cypress dengan npx cypress open
+- Pilih browser (Chrome disarankan)
+- Jalankan test case via GUI
 
-
+# 📝 Catatan
+Project ini masih dalam proses belajar dan pengembangan.
+Jika kamu punya masukan atau saran untuk perbaikan, aku sangat terbuka untuk itu! 💛
