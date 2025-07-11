@@ -43,26 +43,6 @@ Project ini dibuat untuk latihan automation testing menggunakan Cypress dengan p
 - Cypress
 cypress-xpath plugin (untuk selector alternatif jika diperlukan)
 
-# Struktur Folder
-bash
-cypress/
-├── e2e/                # Test case utama
-│   ├── login.cy.js
-│   ├── sorting.cy.js
-│   ├── checkout.cy.js
-│   └── logout.cy.js
-├── support/
-│   ├── commands.js
-│   ├── e2e.js
-│   └── pages/          # Page Object Model
-│       ├── loginPages.js
-│       ├── sortingPage.js
-│       ├── checkoutPage.js
-│       └── logoutPage.js
-├── fixtures/           # (optional) data dummy jika dibutuhkan
-.gitignore
-cypress.config.js
-package.json
 
 # 🚀 Cara Menjalankan
 - Clone repo ini
