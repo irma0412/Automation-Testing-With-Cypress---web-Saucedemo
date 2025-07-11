@@ -3,24 +3,24 @@ class LoginPage {
         cy.visit('https://www.saucedemo.com/');
     }
     fillUsername(username) {
-        cy.get('#user-name').type(username);
+        cy.get('[data-test="username"]').type(username);
 
     }
     fillPassword(password) {
-        cy.get('#password').type(password);
+        cy.get('[data-test="password"]').type(password);
     }
 
     clickLogin() {
-        cy.get('#login-button').click();
+        cy.get('[data-test="login-button"]').click();
     }
 
     verifyLoginSucces(){
         //  Validation to ensure the URL points to the inventory page
         cy.url().should('include', '/inventory.html');
         // Validation to ensure there are elements on the page after login
-        cy.get('.inventory_list').should('be.visible');
+        cy.get('[data-test="inventory-list"]').should('be.visible');
         // Validation to ensure the shopping cart appears
-        cy.get('.shopping_cart_link').should('be.visible');
+        cy.get('[data-test="shopping-cart-link"]').should('be.visible');
     }
 
     verifyErrorMessage(text){

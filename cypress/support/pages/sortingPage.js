@@ -1,18 +1,15 @@
 class inventoryPage{
-verifyOnInventoryPage(){
-    cy.url().should('include', '/inventory.html');
-    cy.get('.inventory_list').should('be.visible');
-}
+
 selectSorting(optionValue){
-    cy.get('.product_sort_container').select(optionValue);
+    cy.get('[data-test="product-sort-container"]').select(optionValue);
 
 }
 getAllProductNames() {
-   return cy.get('.inventory_item_name ');
+   return cy.get('[data-test="inventory-item-name"]');
 
 }
 getAllProductPrices(){
-    return cy.get('.inventory_item_price');
+    return cy.get('[data-test="inventory-item-price"]');
 }
 // validation to ensure the products are displayed from Z to A
 verifyNameSortedByZA(){
