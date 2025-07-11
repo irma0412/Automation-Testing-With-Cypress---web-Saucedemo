@@ -10,9 +10,7 @@ describe("Checkout Produk Web SauceDemo", ()=>{
         loginPages.verifyLoginSucces();
 
     });
-    afterEach(()=>{
-        cy.wait(1000);
-    });
+ 
 
     it("✅Checkout 2 product", ()=>{
      
@@ -57,7 +55,7 @@ describe("Checkout Produk Web SauceDemo", ()=>{
         // validation       
         // expectation failed, because this is a BUG from SauceDemo — it shouldn't be possible to finish without items
         checkoutPage.verifySuccesCheckout();
-        cy.log('BUG: Checkout successful even though cart is empty (this should not be possible)');
+        cy.log('⚠ BUG: Checkout successful even though cart is empty (this should not be possible)');
  
     });
   
