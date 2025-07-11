@@ -11,7 +11,7 @@ class CheckoutPage{
     clickCheckout(){
         cy.get('[data-test="checkout"]').click();
     }
-    fillCustomerInfo(firstName, lastName, postalCode){
+    fillCustomerInfo(firstName = 'irma', lastName = 'suryani', postalCode = '11223'){
         cy.get('[data-test="firstName"]').type(firstName);
         cy.get('[data-test="lastName"]').type(lastName);
         cy.get('[data-test="postalCode"]').type(postalCode);
@@ -45,6 +45,22 @@ class CheckoutPage{
     verifyOninventoryPage(){
         cy.url().should('include', 'inventory.html');
     }
+    verifyCartIsEmpty() {
+    cy.get('.cart_item').should('not.exist');
+    }
+
+    completeCheckoutWith(products = []) {
+    this.addToCart(products);
+    this.openCart();
+    this.clickCheckout();
+    this.verifyOncheckoutPageStep1();
+    this.fillCustomerInfo();
+    this.clickContinue();
+    this.verifyOnCheckoutPageStep2();
+    this.clickFinish();
+    this.verifySuccesCheckout();
+}
+
 
 }
 export default new CheckoutPage();
