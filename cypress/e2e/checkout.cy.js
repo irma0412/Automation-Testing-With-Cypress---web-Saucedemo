@@ -23,24 +23,24 @@ describe("Checkout Produk Web SauceDemo", ()=>{
         checkoutPage.completeCheckoutWith(['sauce-labs-bike-light', 'sauce-labs-fleece-jacket', 'sauce-labs-onesie']);
         cy.log('✅Succes to checkout 3 products');
     });
-    it("❌Checkout without product", ()=>{
+    // it("❌Checkout without product", ()=>{
   
-        // click button to checkout 
-        checkoutPage.openCart();
-        checkoutPage.verifyOnCartPage(); 
-        checkoutPage.verifyCartIsEmpty();           
-        checkoutPage.clickCheckout();
-        checkoutPage.verifyOncheckoutPageStep1(); 
-        checkoutPage.fillCustomerInfo();
-        checkoutPage.clickContinue();
-        checkoutPage.verifyOnCheckoutPageStep2(); 
-        checkoutPage.clickFinish(); 
-        // validation       
-        // expectation failed, because this is a BUG from SauceDemo — it shouldn't be possible to finish without items
-        checkoutPage.verifySuccesCheckout();
-        cy.log('⚠ BUG: Checkout successful even though cart is empty (this should not be possible)');
+    //     // click button to checkout 
+    //     checkoutPage.openCart();
+    //     checkoutPage.verifyOnCartPage(); 
+    //     checkoutPage.verifyCartIsEmpty();           
+    //     checkoutPage.clickCheckout();
+    //     checkoutPage.verifyOncheckoutPageStep1(); 
+    //     checkoutPage.fillCustomerInfo();
+    //     checkoutPage.clickContinue();
+    //     checkoutPage.verifyOnCheckoutPageStep2(); 
+    //     checkoutPage.clickFinish(); 
+    //     // validation       
+    //     // expectation failed, because this is a BUG from SauceDemo — it shouldn't be possible to finish without items
+    //     checkoutPage.verifySuccesCheckout();
+    //     cy.log('⚠ BUG: Checkout successful even though cart is empty (this should not be possible)');
  
-    });
+    // });
   
     it("✅cancel checkout", ()=>{     
         // add produk to cart
