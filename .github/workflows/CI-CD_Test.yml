@@ -1,4 +1,4 @@
-name: CI-CD_Test
+name: Cypress CI/CD
 
 on: 
   push:
