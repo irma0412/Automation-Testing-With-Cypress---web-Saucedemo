@@ -5,6 +5,7 @@ on:
     branches: [Action]
   workflow_dispatch:   # <- bisa run manual kapan aja
 
+#Tahap CI
 jobs: 
     run-tests:
       runs-on: ubuntu-latest
@@ -28,34 +29,37 @@ jobs:
         - name: Run Cypress tests
           run: npx cypress run
 
-    deploy: 
-      needs: run-tests #hanya jalan dengan catatan job run-tests sukses
-      runs-on: ubuntu-latest
-      steps:
-        #Checkout Repository
-        - name: Checkout Repository 
-          uses: actions/checkout@v3
+  #Tahap CD
+  #script ini hanya di pakai jika ada web/apl dibuild/deploy jika tidak dan hanya berisi script testing maka hanya sampai CI
+    
+    # deploy: 
+    #   needs: run-tests #hanya jalan dengan catatan job run-tests sukses
+    #   runs-on: ubuntu-latest
+    #   steps:
+    #     #Checkout Repository
+    #     - name: Checkout Repository 
+    #       uses: actions/checkout@v3
         
-        #Setup Node.js
-        - name: Setup Node.js
-          uses: actions/setup-node@v3
-          with:
-            node-version: '18'
+    #     #Setup Node.js
+    #     - name: Setup Node.js
+    #       uses: actions/setup-node@v3
+    #       with:
+    #         node-version: '18'
         
-        #Install Dependencies
-        - name: Install dependencies
-          run: npm install
+    #     #Install Dependencies
+    #     - name: Install dependencies
+    #       run: npm install
 
-        #Built project
-        - name: Build project
-          run: npm run build #pastikan ada script "build" di package.json
+    #     #Built project
+    #     - name: Build project
+    #       run: npm run build #pastikan ada script "build" di package.json
 
-        # Deploy ke github pages
-        - name: Deploy ke Github Pages
-          uses: peaceiris/actions-gh-pages@v3
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN}}
-            publish_dir: ./build # ganti ./dist kalau menggunakan Vite/vue
+    #     # Deploy ke github pages
+    #     - name: Deploy ke Github Pages
+    #       uses: peaceiris/actions-gh-pages@v3
+    #       with:
+    #         github_token: ${{ secrets.GITHUB_TOKEN }}
+    #         publish_dir: ./build # ganti ./dist kalau menggunakan Vite/vue
 
       
 
