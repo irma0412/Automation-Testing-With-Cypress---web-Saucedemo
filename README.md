@@ -51,6 +51,13 @@ cypress-xpath plugin (untuk selector alternatif jika diperlukan)
 - Pilih browser (Chrome disarankan)
 - Jalankan test case via GUI
 
+# Referensi
+Kalo ada yang penasaran sama dokumentasinya, boleh banget yaaah liat di postingan linkedin ku, ini aku lampirin linknya yah dan boleh banget jugaaa kepoin dokumentasi project lainnyaaa juga hihi
+
+Dokumentasi Project test web Sauce Demo: https://www.linkedin.com/posts/irma-suryani-3b07841ba_cypress-automationtesting-testingupdate-activity-7349327282450153473-TOPT?utm_source=share&utm_medium=member_desktop&rcm=ACoAADMEGTQBFSv0AdY1vOZRPgVyJI6HXfLr5pM
+
+
+
 # 📝 Catatan
 Project ini masih dalam proses belajar dan pengembangan.
 Jika kamu punya masukan atau saran untuk perbaikan, aku sangat terbuka untuk itu! 💛
