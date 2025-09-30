@@ -5,52 +5,69 @@ Project ini dibuat untuk latihan automation testing menggunakan Cypress dengan p
 🎯 Tujuan utamanya adalah memahami alur testing web dari login, sortir produk, checkout, hingga logout dengan skenario yang beragam.
 
 # Fitur yang Diuji (Test Cases)
-1. Login (4 skenario)
-- ✅ Login sukses (username & password valid)
 
-- ❌ Gagal login - username salah
+- Login (1 skenario)
+✅ Login sukses (username & password valid)
 
-- ❌ Gagal login - password salah
+- Sortir Produk (3 skenario)
+✅ Sortir dari nama Z → A
+✅ Sortir harga dari rendah → tinggi
+✅ Sortir harga dari tinggi → rendah
 
-- ❌ Gagal login - username & password salah
+- Checkout (2 skenario)
+✅ Checkout dengan 2 produk
+✅ Checkout dengan 3 produk
 
-2.  Sortir Produk (3 skenario)
-- ✅ Sortir dari nama Z → A
-
-- ✅ Sortir harga dari rendah → tinggi
-
-- ✅ Sortir harga dari tinggi → rendah
-
-3.  Checkout (4 skenario)
-- ✅ Checkout dengan 2 produk
-
-- ✅ Checkout dengan 3 produk
-
-- ❌ Checkout tanpa memilih produk
-
-- ❌ Cancel saat proses checkout
-
-4.  Logout (dari 4 halaman berbeda)
-- ✅ Logout dari halaman utama (homepage)
-
-- ✅ Logout dari halaman shopping cart
-
-- ✅ Logout dari halaman checkout
-
-- ✅ Logout dari halaman pembayaran (payment)
+- Logout (4 skenario)
+✅ Logout dari halaman utama (homepage)
+✅ Logout dari halaman shopping cart
+✅ Logout dari halaman checkout
+✅ Logout dari halaman pembayaran (payment)
 
 # 🛠️ Tools & Library
-- Cypress
-cypress-xpath plugin (untuk selector alternatif jika diperlukan)
 
+- Cypress
+
+- cypress-xpath plugin (untuk selector alternatif jika diperlukan)
 
 # 🚀 Cara Menjalankan
+
 - Clone repo ini
+
 - Jalankan npm install
+
 - Buka Cypress dengan npx cypress open
+
 - Pilih browser (Chrome disarankan)
+
 - Jalankan test case via GUI
 
+# ⚙️ CI/CD Pipeline
+
+Project ini juga sudah ditambahkan konfigurasi CI/CD pipeline di folder .github/workflows menggunakan GitHub Actions.
+
+- CI (Continuous Integration) → Setiap kali ada push/PR, automation test dijalankan otomatis untuk memastikan semua script masih berjalan sesuai harapan.
+
+- CD (Continuous Deployment/Delivery) → Karena project ini hanya berfokus pada pengujian (tanpa aplikasi web/apk yang dibuild), tahap CD tidak bisa dijalankan penuh. Namun, script CD tetap disertakan untuk memperlihatkan alur pipeline lengkap.
+
+# Cabang (Branch) Khusus CI/CD
+
+Di repository ini ada branch khusus bernama action yang digunakan untuk menjalankan CI/CD pipeline.
+
+Pada branch ini, test case negative case dihilangkan agar lebih fokus ke jalannya pipeline CI/CD. (Di branch main, negative case awalnya masih ada).
+
+Kalau mau melihat hasil dari CI yang sudah dijalankan, bisa cek langsung di menu Actions pada repository GitHub.
+
+# Kenapa CI/CD Penting untuk QA?
+
+- Deteksi cepat bug/regression → QA bisa tahu lebih awal kalau ada test case yang gagal setelah perubahan kode.
+
+- Mengurangi pekerjaan manual → Test otomatis dijalankan setiap commit, jadi QA tidak perlu run test berulang-ulang secara manual.
+
+- Mendukung kolaborasi tim → QA, dev, dan tim lain bisa lebih percaya diri dengan kualitas produk karena pipeline berjalan konsisten.
+
+- Lebih efisien → Proses testing jadi lebih cepat dan rapi dengan report otomatis.
+
 # 📝 Catatan
-Project ini masih dalam proses belajar dan pengembangan.
-Jika kamu punya masukan atau saran untuk perbaikan, aku sangat terbuka untuk itu! 💛
+
+Project ini masih dalam proses belajar dan pengembangan. Karena belum ada app/web yang dibuild, pipeline baru berjalan sampai tahap CI. Tapi script untuk CD tetap dimasukkan agar alurnya lengkap ✨. Jika kamu punya masukan atau saran untuk perbaikan, aku sangat terbuka untuk itu! 💛
